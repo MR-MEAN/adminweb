@@ -2,7 +2,7 @@
 
 angular.module('adminwebApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $http.get('/api/awesomeThings').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
+    $http.get('/api/tools').success(function(tools) {
+      $scope.tools = tools;
     });
   });

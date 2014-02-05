@@ -6,8 +6,11 @@ angular.module('adminwebApp')
       'title': 'Home',
       'link': '/'
     }, {
-      'title': 'Settings',
-      'link': '/settings'
+      'title': 'Finance',
+      'link': '/finance'
+    }, {
+      'title': 'Users',
+      'link': '/users'
     }];
     
     $scope.logout = function() {

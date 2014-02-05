@@ -1,28 +1,28 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: UsersCtrl', function () {
 
   // load the controller's module
   beforeEach(module('adminwebApp'));
 
-  var MainCtrl,
+  var UsersCtrl,
     scope,
     $httpBackend;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function (_$httpBackend_, $controller, $rootScope) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('/api/tools')
-      .respond(['Finance', 'Escrow']);
+    $httpBackend.expectGET('/api/users')
+      .respond(['test@test.com', 'me@example.com']);
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    UsersCtrl = $controller('UsersCtrl', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of tools to the scope', function () {
-    expect(scope.tools).toBeUndefined();
+  it('should attach a list of users to the scope', function () {
+    expect(scope.users).toBeUndefined();
     $httpBackend.flush();
-    expect(scope.tools.length).toBe(2);
+    expect(scope.users.length).toBe(2);
   });
 });

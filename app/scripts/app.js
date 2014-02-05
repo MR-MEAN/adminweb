@@ -25,6 +25,10 @@ angular.module('adminwebApp', [
         controller: 'SettingsCtrl',
         authenticate: true
       })
+      .when('/users', {
+        templateUrl: 'partials/users',
+        controller: 'UsersCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

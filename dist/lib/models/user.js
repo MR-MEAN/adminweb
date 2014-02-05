@@ -17,17 +17,13 @@ var UserSchema = new Schema({
     type: String,
     unique: true
   },
-  role: {
-    type: String,
-    default: 'user'
+  roles: {
+    type: Array,
+    default: []
   },
   hashedPassword: String,
   provider: String,
-  salt: String,
-  facebook: {},
-  twitter: {},
-  github: {},
-  google: {}
+  salt: String
 });
 
 /**
@@ -50,7 +46,7 @@ UserSchema
   .get(function() {
     return {
       'name': this.name,
-      'role': this.role,
+      'roles': this.roles,
       'provider': this.provider
     };
   });
@@ -61,7 +57,7 @@ UserSchema
   .get(function() {
     return {
       'name': this.name,
-      'role': this.role
+      'roles': this.roles
     };
   });
     
